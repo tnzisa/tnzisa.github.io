@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracey Nzisa Tsurwa — Cybersecurity × Agentic AI</title>
+<meta name="description" content="Tracey Nzisa Tsurwa — Cybersecurity Engineer working at the intersection of agentic AI, critical infrastructure, digital forensics and software engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#07090d;
+  --panel:#0d1118;
+  --panel2:#111720;
+  --line:#202936;
+  --text:#f2f5f7;
+  --muted:#8e9aaa;
+  --accent:#70e0c1;
+  --accent2:#8bb7ff;
+  --warning:#e8b45c;
+  --max:1080px;
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(circle at 78% 4%, rgba(112,224,193,.09), transparent 26rem),
+    radial-gradient(circle at 8% 20%, rgba(139,183,255,.06), transparent 24rem),
+    var(--bg);
+  color:var(--text);
+  font-family:"DM Sans",system-ui,sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body:before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:auto;padding:0 28px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.eyebrow{
+  color:var(--accent);font:500 .75rem "IBM Plex Mono",monospace;
+  letter-spacing:.12em;text-transform:uppercase
+}
+nav{
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(16px);
+  background:rgba(7,9,13,.76);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font:700 1.05rem "Space Grotesk",sans-serif;letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.nav-links{display:flex;gap:26px;color:var(--muted);font-size:.9rem}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:92px 0 72px;display:grid;grid-template-columns:1.35fr .65fr;gap:60px;align-items:end}
+.hero h1{
+  margin-top:16px;font:700 clamp(3rem,7vw,6.3rem)/.93 "Space Grotesk",sans-serif;
+  letter-spacing:-.065em;max-width:850px
+}
+.hero h1 .accent{color:var(--accent)}
+.hero-lede{margin-top:28px;color:#b7c0cc;font-size:1.14rem;max-width:690px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:10px;
+  border:1px solid var(--line);font-weight:600;font-size:.9rem
+}
+.btn.primary{background:var(--accent);color:#06110f;border-color:var(--accent)}
+.btn:hover{transform:translateY(-1px)}
+.signal{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  background:linear-gradient(145deg,rgba(17,23,32,.9),rgba(10,13,18,.85));
+}
+.signal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(112,224,193,.65)}
+.signal-row{padding:12px 0;border-top:1px solid var(--line);font-size:.88rem}
+.signal-row span{display:block;color:var(--muted);font:500 .68rem "IBM Plex Mono",monospace;letter-spacing:.08em;margin-bottom:4px}
+.section{padding:76px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}
+.section h2{font:600 clamp(1.8rem,4vw,2.7rem)/1 "Space Grotesk",sans-serif;letter-spacing:-.04em}
+.section-intro{color:var(--muted);max-width:560px;font-size:.95rem}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.about-copy{color:#b7c0cc;font-size:1.05rem}
+.about-copy p+p{margin-top:18px}
+.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.pill{
+  padding:7px 10px;border:1px solid var(--line);border-radius:999px;
+  color:#b4becb;font-size:.78rem;background:rgba(255,255,255,.015)
+}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--panel2),var(--panel));
+  padding:25px;min-height:350px;display:flex;flex-direction:column
+}
+.card:after{
+  content:"";position:absolute;width:170px;height:170px;border-radius:50%;
+  right:-75px;top:-75px;background:rgba(112,224,193,.055)
+}
+.card.featured{grid-column:span 2;min-height:390px}
+.card-number{font:500 .72rem "IBM Plex Mono",monospace;color:#5e6979}
+.card h3{font:600 1.35rem "Space Grotesk",sans-serif;margin-top:45px;letter-spacing:-.03em}
+.card.featured h3{font-size:1.75rem}
+.card p{color:var(--muted);font-size:.9rem;margin-top:12px;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.tag{font:500 .69rem "IBM Plex Mono",monospace;color:#aeb8c6;border:1px solid var(--line);padding:5px 8px;border-radius:6px}
+.card-bottom{margin-top:auto;padding-top:28px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.status{font:500 .68rem "IBM Plex Mono",monospace}
+.status.live{color:var(--accent)}
+.status.build{color:var(--warning)}
+.repo{color:var(--accent2);font-size:.82rem}
+.stats{
+  margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden
+}
+.stat{padding:22px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat strong{display:block;font:700 1.65rem "Space Grotesk",sans-serif}
+.stat span{display:block;color:var(--muted);font-size:.76rem;margin-top:3px}
+.timeline{position:relative}
+.timeline:before{content:"";position:absolute;left:91px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.timeline-item{display:grid;grid-template-columns:130px 1fr;gap:36px;padding:18px 0}
+.date{font:500 .72rem "IBM Plex Mono",monospace;color:var(--muted)}
+.event{position:relative}
+.event:before{
+  content:"";position:absolute;left:-42px;top:7px;width:7px;height:7px;
+  border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--bg)
+}
+.event h3{font:600 1rem "Space Grotesk",sans-serif}
+.event p{color:var(--muted);font-size:.87rem;margin-top:4px}
+.focus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.focus{
+  padding:20px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.018)
+}
+.focus b{font:600 .9rem "Space Grotesk",sans-serif}
+.focus p{color:var(--muted);font-size:.78rem;margin-top:7px}
+.contact{
+  padding:80px 0 100px;text-align:center
+}
+.contact h2{font:600 clamp(2.3rem,6vw,4.5rem)/1 "Space Grotesk",sans-serif;letter-spacing:-.055em}
+.contact p{color:var(--muted);margin:17px auto 0;max-width:560px}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:28px;color:#b9c3cf;font-size:.9rem}
+.contact-links a:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:24px 0 34px;color:#657080;font-size:.72rem;display:flex;justify-content:space-between;gap:20px}
+@media(max-width:850px){
+  .hero{grid-template-columns:1fr;padding-top:68px}
+  .projects{grid-template-columns:1fr}
+  .card.featured{grid-column:auto}
+  .about-grid{grid-template-columns:1fr;gap:25px}
+  .focus-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .nav-links a:nth-child(-n+2){display:none}
+  .hero h1{font-size:3.15rem}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:0}
+  .timeline:before{display:none}
+  .timeline-item{grid-template-columns:1fr;gap:5px}
+  .event:before{display:none}
+  .focus-grid{grid-template-columns:1fr}
+  footer{display:block}
+  footer span+span{display:block;margin-top:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn:hover{transform:none}
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">TN<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#journey">Journey</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/tnzisa" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<header class="hero wrap">
+  <div>
+    <div class="eyebrow">Cybersecurity Engineer · Agentic AI · Critical Infrastructure</div>
+    <h1>Building systems that are <span class="accent">intelligent.</span><br>Making them <span class="accent">trustworthy.</span></h1>
+    <p class="hero-lede">
+      I'm Tracey Nzisa Tsurwa — a cybersecurity engineer working at the intersection of
+      agentic AI, digital forensics, software engineering and critical infrastructure.
+    </p>
+    <div class="ctas">
+      <a class="btn primary" href="#work">Explore my work ↓</a>
+      <a class="btn" href="mailto:traceynzisa200@gmail.com">Let's connect ↗</a>
+    </div>
+  </div>
+
+  <aside class="signal" aria-label="Current professional status">
+    <div class="signal-top">
+      <span class="eyebrow">System readout</span><span class="dot"></span>
+    </div>
+    <div class="signal-row"><span>ROLE</span>Cybersecurity Engineer — AI Security</div>
+    <div class="signal-row"><span>FOCUS</span>Agentic AI · OT/ICS · Digital Forensics</div>
+    <div class="signal-row"><span>BASE</span>Nairobi, Kenya</div>
+    <div class="signal-row"><span>STATUS</span>Open to new opportunities</div>
+  </aside>
+</header>
+
+<section id="about" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why this work</h2>
+      <p class="section-intro">The strongest part of my profile isn't one technology. It's the overlap between security, AI and systems that matter.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>I spent the last year building and shipping an AI system for the energy sector. At i3Technology, an IBM Silver Partner, I led development of GridSentinel AI — a five-agent platform for East African grid management.</p>
+        <p>I later presented the work directly to TANESCO, Tanzania's national electricity utility, with IBM Lab Services in attendance, securing a proof-of-concept commitment within two weeks.</p>
+      </div>
+      <div class="about-copy">
+        <p>That experience shaped the direction I am pursuing: <strong>security for intelligent systems operating in real environments.</strong> My foundation in IBM QRadar SIEM/SOAR/EDR, digital forensics, cybercrime investigation and full-stack development gives me a cross-disciplinary way of approaching that problem.</p>
+        <div class="pill-row">
+          <span class="pill">Threat Detection</span><span class="pill">AI Security</span>
+          <span class="pill">OT / ICS Security</span><span class="pill">Digital Forensics</span>
+          <span class="pill">Agentic AI</span><span class="pill">Security Engineering</span>
+        </div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>#1 / 134</strong><span>cohort-wide ranking</span></div>
+      <div class="stat"><strong>9.0 / 10</strong><span>performance rating</span></div>
+      <div class="stat"><strong>5-agent</strong><span>GridSentinel architecture</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <p class="section-intro">A small number of projects, chosen to show how I think — not a catalogue of everything I've ever built.</p>
+    </div>
+
+    <div class="projects">
+      <article class="card featured">
+        <span class="card-number">01 / FLAGSHIP</span>
+        <h3>GridSentinel AI</h3>
+        <p>A five-agent autonomous platform for East African power grid management, combining AI analytics, operational technology security and work-order automation. Presented to TANESCO leadership and IBM Lab Services, securing a proof-of-concept commitment.</p>
+        <div class="tags">
+          <span class="tag">watsonx.ai</span><span class="tag">Granite LLM</span><span class="tag">Kafka</span>
+          <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+        </div>
+        <div class="card-bottom"><span class="status live">● LIVE PROJECT</span><a class="repo" href="https://github.com/tnzisa/gridsentinel-ai" target="_blank" rel="noopener">View repository ↗</a></div>
+      </article>
+
+      <article class="card">
+        <span class="card-number">02</span>
+        <h3>AgentGuard</h3>
+        <p>Red-teaming toolkit for multi-agent AI systems, focused on prompt injection, unauthorized tool calls and cross-agent data leakage.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">OWASP LLM</span></div>
+        <div class="card-bottom"><span class="status build">● IN PROGRESS</span></div>
+      </article>
+
+      <article class="card">
+        <span class="card-number">03</span>
+        <h3>GridWatch</h3>
+        <p>Anomaly-detection dashboard for OT/industrial telemetry using LSTM-based scoring and real-time visualization.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Grafana</span><span class="tag">PostgreSQL</span></div>
+        <div class="card-bottom"><span class="status build">● IN PROGRESS</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Technical focus</h2>
+      <p class="section-intro">The stack is deliberately broad enough to build, secure and investigate systems end-to-end.</p>
+    </div>
+    <div class="focus-grid">
+      <div class="focus"><b>Security Engineering</b><p>SIEM · SOAR · EDR · threat analysis · vulnerability assessment · incident response</p></div>
+      <div class="focus"><b>Agentic AI</b><p>Multi-agent systems · LLMs · tool use · AI security · intelligent automation</p></div>
+      <div class="focus"><b>Forensics</b><p>Digital evidence · forensic imaging · OSINT · log analysis · investigation</p></div>
+      <div class="focus"><b>Engineering</b><p>Python · FastAPI · SQL · PostgreSQL · APIs · Docker · data systems</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="journey" class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Journey so far</h2>
+      <p class="section-intro">A compact view of the experiences that shaped the direction of my work.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">2026</div>
+        <div class="event"><h3>AIESEC Global Volunteer — Romania</h3><p>Supporting NGO capacity-building and community development under UN SDG 8.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">FEB–JUN 2026</div>
+        <div class="event"><h3>Team Lead, Utilities & Agentic AI — i3Technology</h3><p>Ranked #1 of 134 professionals cohort-wide with a 9.0/10 performance rating. Led the TANESCO presentation and POC.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">NOV 2025</div>
+        <div class="event"><h3>Cybersecurity Engineer Intern — i3Technology</h3><p>Began building GridSentinel AI using IBM watsonx.ai and Granite LLM.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2024–2025</div>
+        <div class="event"><h3>B.Sc. Applied Computer Technology — USIU-Africa</h3><p>Concentration in Forensic Information Technology & Cybercrime.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact wrap">
+  <div class="eyebrow">Open channel</div>
+  <h2>Have a difficult security problem?</h2>
+  <p>I'm interested in opportunities where cybersecurity, intelligent systems and real-world infrastructure meet.</p>
+  <div class="contact-links">
+    <a href="mailto:traceynzisa200@gmail.com">traceynzisa200@gmail.com ↗</a>
+    <a href="https://www.linkedin.com/in/tracey-tsurwa" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/tnzisa" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="https://www.credly.com/users/tracey-nzisa" target="_blank" rel="noopener">Credly ↗</a>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Tracey Nzisa Tsurwa</span>
+  <span class="mono">Built & deployed on GitHub Pages.</span>
+</footer>
+</body>
+</html>
